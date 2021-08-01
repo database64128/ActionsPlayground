@@ -39,8 +39,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: LICENSE
-          tag: ${{ github.ref }}
+          tag: nightly-${{ steps.date.outputs.date }}
           file_glob: false
           overwrite: true
           prerelease: false
-          release_name: nightly-${{ steps.date.outputs.date }}
