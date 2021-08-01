@@ -30,6 +30,15 @@ jobs:
           ls -al
           date +'%Y-%m-%d'
           cat /etc/os-release
-          git --version
           tar --version
           zstd --version
+      - name: Upload release assets
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: LICENSE
+          tag: ${{ github.ref }}
+          file_glob: false
+          overwrite: true
+          prerelease: false
+          release_name: nightly-${{ steps.date.outputs.date }}
