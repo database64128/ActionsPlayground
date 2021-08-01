@@ -29,5 +29,6 @@ jobs:
           pwd
           ls -al
           date +'%Y-%m-%d'
+          cat /etc/os-release
           tar --version
           zstd --version
