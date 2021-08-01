@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - '**'
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+  pull_request:
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Test
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux/archlinux:base-devel
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run build script
+        run: |
+          pwd
+          ls -al
+          date +'%Y-%m-%d'
+          tar --version
+          zstd --version
