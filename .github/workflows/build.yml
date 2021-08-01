@@ -30,5 +30,6 @@ jobs:
           ls -al
           date +'%Y-%m-%d'
           cat /etc/os-release
+          git --version
           tar --version
           zstd --version
